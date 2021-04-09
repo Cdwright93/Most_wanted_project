@@ -56,3 +56,4 @@ data = people
 generateTableContents(table, people);
 
 //function that takes in id and gives back person's name
+//test code
