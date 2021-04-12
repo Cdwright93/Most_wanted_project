@@ -39,16 +39,86 @@ function generateTableContents(){
     for (let person of data){
         let row = table.insertRow();
         for (let key in person){
-            if(key !== 'id'){
+            if(key === 'firstName'){
                 let cell = row.insertCell();
                 let text = document.createTextNode(person[key]);
-                cell.appendChild(text)
-            }
+                cell.appendChild(text)}
+            if(key === 'lastName'){
+                let cell = row.insertCell();
+                let text = document.createTextNode(person[key]);
+                cell.appendChild(text)}
+                if(key === 'gender'){
+                    let cell = row.insertCell();
+                    let text = document.createTextNode(person[key]);
+                    cell.appendChild(text)}
+                    if(key === 'dob'){
+                        let cell = row.insertCell();
+                        let text = document.createTextNode(person[key]);
+                        cell.appendChild(text)}
+                        if(key === 'height'){
+                            let cell = row.insertCell();
+                            let text = document.createTextNode(person[key]);
+                            cell.appendChild(text)}
+                            if(key === 'weight'){
+                                let cell = row.insertCell();
+                                let text = document.createTextNode(person[key]);
+                                cell.appendChild(text)}
+                                if(key === 'eyeColor'){
+                                    let cell = row.insertCell();
+                                    let text = document.createTextNode(person[key]);
+                                    cell.appendChild(text)}
+                                    if(key === 'occupation'){
+                                        let cell = row.insertCell();
+                                        let text = document.createTextNode(person[key]);
+                                        cell.appendChild(text)}
+                                        if(key === 'parents'){
+                                            let parentsFound = person[key]
+                                            if(parentsFound.length === 0){
+                                                parentsFound = 'None'
+                                            }
+                                            if(parentsFound.length === 1){
+                                                let parentFiltered =people.filter(function(person){
+                                                    if(person.id === parentsFound[0])
+                                                    parentsFound[0] = person.firstName + ' ' + person.lastName
+                                                    })
+                                            }
+                                            if(parentsFound.length === 2){
+                                                let parentFiltered =people.filter(function(person){
+                                                    if(person.id === parentsFound[0])
+                                                    parentsFound[0] = person.firstName + ' ' + person.lastName
+                                                    })
+                                                    let parentsFiltered =people.filter(function(person){
+                                                        if(person.id === parentsFound[1])
+                                                        parentsFound[1] = person.firstName + ' ' + person.lastName
+                                                        })
+                                            }
+                                            let cell = row.insertCell();
+                                            let text = document.createTextNode(parentsFound);
+                                            cell.appendChild(text)
+                                        }                                            
+                                        if(key === 'currentSpouse'){
+                                         let spouseFound = person[key]
+                                             if(spouseFound == null){
+                                                 spouseFound = 'N/A'
+                                         }
+                                        let spouseFiltered =people.filter(function(person){
+                                        if(person.id === spouseFound)
+                                        spouseFound = person.firstName + ' ' + person.lastName
+                                        })
+                                        let cell = row.insertCell();
+                                        let text = document.createTextNode(spouseFound);
+                                        cell.appendChild(text)
+                                        }
+                                        }
+                                        }
+                                        }
+                                    
             //addition statement for key being parents or spouse
-        }
-    }
-}
-
+                                        
+                
+                
+             
+ 
 let table = document.querySelector("table");
 let data = Object.keys(personTable[0]);
 generateTableHead(table, data);
